@@ -1,0 +1,16 @@
+Package: mutant
+Type: Package
+Title: Mutation Testing Framework
+Description: Mutation Testing Framework.
+Version: 0.0.1.9100
+Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
+    email = "myrmecocystus@gmail.com"))
+License: MIT + file LICENSE
+URL: https://github.com/ropenscilabs/mutant
+BugReports: https://github.com/ropenscilabs/mutant/issues
+LazyData: true
+Imports:
+    functionMap,
+    xmlparsedata
+RoxygenNote: 5.0.1
+Remotes: MangoTheCat/functionMap

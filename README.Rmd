@@ -1,0 +1,32 @@
+mutant
+======
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`mutant` - mutation testing
+
+## Installation
+
+```{r eval=FALSE}
+devtools::install_github("ropenscilabs/mutant")
+```
+
+```{r}
+library("mutant")
+```
+
+## Meta
+
+* Please [report any issues or bugs](https://github.com/ropenscilabs/mutant/issues).
+* License: MIT
+* Get citation information for `mutant` in R doing `citation(package = 'mutant')`
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+[![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
