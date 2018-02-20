@@ -9,18 +9,7 @@ mutant_report <- function(x) {
   # cat("write results to cli")
 }
 
-mutation_test <- function(mut_pkg_path) {
-  origwd <- getwd()
-  setwd(mut_pkg_path)
-  on.exit(setwd(origwd))
-  devtools::install(upgrade_dependencies = FALSE, quiet = TRUE)
-  # sys::exec_internal(sprintf("R CMD BUILD .%s", basename(mut_pkg_path)))
-  # sys::exec_wait(sprintf("R CMD BUILD %s && %s", mut_pkg_path))
-  #tout=testthat::test_file(tfile, reporter = testthat::ListReporter)
-  #setwd(mut_pkg_path)
-  testthat::test_package("phylocomr", reporter = testthat::ListReporter)
-}
-
+#' Write mutated package
 write_mutated_pkg <- function(pkg_path, fxns) {
   # temp dir
   mut_pkg_path <- file.path(tempdir(), "mutant", sample(1:1000, 1), basename(pkg_path))
@@ -55,18 +44,33 @@ collect_fxns <- function(path) {
   get_fxns(get_files(path), env = myenv)
 }
 
-#parse_fxns()
+#' Parse functions
+#'
+#' @keywords internal
+#' @examples \dontrun{
+#' parse_fxns()
+#' }
 parse_fxns <- function() {
   stats::setNames(lapply(ls(envir = myenv), function(z) {
     pp <- parse(text = deparse(get(z, envir = myenv)), keep.source = TRUE)
-    getParseData(pp)
+    utils::getParseData(pp)
   }), ls(envir = myenv))
 }
 
+#' Mutate many
+#'
+#' @examples \dontrun{
+#' mutate()
+#' }
 mutate <- function(x) {
   lapply(x, mutate_one)
 }
 
+#' Mutate one
+#'
+#' @examples \dontrun{
+#' mutate_one()
+#' }
 mutate_one <- function(x) {
   # e.g., replace any EQ with a different one
   out <- x[x$token == "EQ", "text"]
@@ -85,7 +89,7 @@ mutate_one <- function(x) {
 }
 
 make_fxn <- function(x) {
-  paste0(getParseText(x, x[which(x$token == "expr")[1], "id"]), collapse = "")
+  paste0(utils::getParseText(x, x[which(x$token == "expr")[1], "id"]), collapse = "")
 }
 make_fxns <- function(x) lapply(x, make_fxn)
 
@@ -96,6 +100,7 @@ get_files <- function(path = ".") functionMap:::r_package_files(path)
 get_fxns <- function(x, env) invisible(lapply(x, source, local = env,
                                               keep.source = TRUE))
 
+# make a package map via functionMap::map_r_package
 make_pkg_map <- function(x) {
   tmp <- functionMap::map_r_package(x)
   one <- tmp$edge_df[, -2]
@@ -103,9 +108,16 @@ make_pkg_map <- function(x) {
   two <- tmp$edge_df[, -1]
   names(two)[1] <- "fxn"
   df <- rbind(one, two)[, c('fxn', 'line', 'file')]
-  df[!duplicated(df), ]
+  tmp$edge_df2 <- df[!duplicated(df), ]
+  return(tmp)
 }
 
+# get filenames from function names
+#
+# path <- '/Users/sckott/github/ropensci/rredlist'
+# fxns <- xx
+# pkgmap <- make_pkg_map(path)
+# filename_from_fxnname(fxns, map)
 filename_from_fxnname <- function(fxns, map) {
   lsa <- lapply(names(fxns), function(z) {
     matched <- map[map$fxn %in% z, ]
@@ -120,11 +132,11 @@ filename_from_fxnname <- function(fxns, map) {
   df[ order(df$file), ]
 }
 
+# replace symbols randomly with another symbol
 replace_eq <- function(x) {
   eq_ops <- c("==", "!=", "<=", ">=", ">", "<")
   sample(eq_ops[!eq_ops %in% x], size = 1)
 }
-
 
 # function(x) {
 #   as.numeric(ranks_ref[which(sapply(ranks_ref$ranks, function(z) {
