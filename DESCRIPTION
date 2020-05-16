@@ -13,9 +13,10 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 Imports:
-    functionMap,
+    pkgapi,
     jsonlite,
     testthat,
-    xmlparsedata
+    xmlparsedata,
+    astr
 RoxygenNote: 7.1.0
-Remotes: MangoTheCat/functionMap
+Remotes: r-lib/pkgapi, ropenscilabs/astr
