@@ -1,0 +1,8 @@
+mutant-package	mutant-package
+mutant	mutant-package
+mutate	mutate
+mutate_one	mutate_one
+parse_fxns	parse_fxns
+run_test	run_test
+run_tests	run_test
+write_mutated_pkg	write_mutated_pkg

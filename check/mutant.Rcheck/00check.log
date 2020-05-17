@@ -1,0 +1,83 @@
+* using log directory ‘/workspaces/mutant/check/mutant.Rcheck’
+* using R version 4.0.0 (2020-04-24)
+* using platform: x86_64-pc-linux-gnu (64-bit)
+* using session charset: UTF-8
+* using option ‘--no-manual’
+* checking for file ‘mutant/DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘mutant’ version ‘0.0.1.92’
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for .dll and .exe files ... OK
+* checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  .devcontainer
+  .github
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual.
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘mutant’ can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... WARNING
+'::' or ':::' import not declared from: ‘functionMap’
+Namespaces in Imports field not imported from:
+  ‘astr’ ‘pkgapi’ ‘xmlparsedata’
+  All declared Imports should be used.
+Unavailable namespace imported from by a ':::' call: ‘functionMap’
+  See the note in ?`:::` about the use of this operator.
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+write_mutated_pkg: no visible binding for global variable ‘pkgmap’
+Undefined global functions or variables:
+  pkgmap
+* checking Rd files ... WARNING
+checkRd: (5) mutant-package.Rd:0-12: Must have a \description
+* checking Rd metadata ... OK
+* checking Rd cross-references ... WARNING
+Missing link or links in documentation object 'run_test.Rd':
+  ‘make_pkg_map’
+
+See section 'Cross-references' in the 'Writing R Extensions' manual.
+
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'mutate'
+  ‘x’
+
+Undocumented arguments in documentation object 'mutate_one'
+  ‘x’
+
+Undocumented arguments in documentation object 'write_mutated_pkg'
+  ‘pkg_path’ ‘fxns’
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking examples ... OK
+* DONE
+Status: 4 WARNINGs, 2 NOTEs

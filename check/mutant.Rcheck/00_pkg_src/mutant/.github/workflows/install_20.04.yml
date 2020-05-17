@@ -1,0 +1,13 @@
+on: [push, pull_request]
+name: Install in a Ubuntu 20.04 Docker container
+
+jobs:
+  actions:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Build image
+      run: docker build --tag ropensci/mutant .
+    - name: Install in container
+      run: docker run ropensci/mutant make install
