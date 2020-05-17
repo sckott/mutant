@@ -33,10 +33,10 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@master
 
       - name: Query dependencies
-      run: |
-        install.packages('remotes')
-        saveRDS(remotes::dev_package_deps(dependencies = TRUE), "depends.Rds", version = 2)
-      shell: Rscript {0}
+        run: |
+          install.packages('remotes')
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), "depends.Rds", version = 2)
+        shell: Rscript {0}
 
       - name: Cache R packages
         if: runner.os != 'Windows'
@@ -46,7 +46,7 @@ jobs:
           key: ${{ env.cache-version }}-${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('depends.Rds') }}
           restore-keys: ${{ env.cache-version }}-${{ runner.os }}-r-${{ matrix.config.r }}-
 
-        - name: Install system dependencies on Linux
+      - name: Install system dependencies on Linux
         if: runner.os == 'Linux'
         env:
           RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
@@ -55,7 +55,7 @@ jobs:
           sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
           sudo -s eval "$sysreqs"
 
-        - name: Install system dependencies on macOS
+      - name: Install system dependencies on macOS
         if: runner.os == 'macOS'
         run: |
           # XQuartz is needed by vdiffr
@@ -73,13 +73,13 @@ jobs:
             brew install udunits gdal
           fi
 
-        - name: Install dependencies
+      - name: Install dependencies
         run: |
             remotes::install_deps(dependencies = TRUE)
             remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
 
-        - name: Check
+      - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", check_dir = "check")
         shell: Rscript {0}
 
