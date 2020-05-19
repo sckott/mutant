@@ -17,6 +17,9 @@ Imports:
     jsonlite,
     testthat,
     xmlparsedata,
-    astr
+    astr,
+    withr,
+    R6,
+    pkgload
 RoxygenNote: 7.1.0
 Remotes: r-lib/pkgapi, ropenscilabs/astr

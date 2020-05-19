@@ -1,9 +1,10 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^CONDUCT\.md$
+^CODE_OF_CONDUCT\.md$
 README.Rmd
 .travis.yml
 cran-comments.md
 man-roxygen
 scottnotes.md
 ^Makefile$
+^.github$

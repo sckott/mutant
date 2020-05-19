@@ -1,18 +1,26 @@
-path <- "../../ropensci/phylocomr//"
+path <- "../randgeo/"
 
 # workflow
 ## collect fxns into an environment
-collect_fxns(path)
+env <- collect_fxns(path)
+ls.str(env)
 ## make pkg map for later
 pkgmap <- make_pkg_map(path)
 ## parse fxns with getParseData
-fxns <- parse_fxns()
+# fxns <- parse_fxns(env)
 ## mutate something
-mut_fxns <- mutate(fxns)
+mut_fxns <- mutate(as.list(env))
+# what fxn was mutated?
+which(vapply(mut_fxns, function(x) attr(x, "mutated"), logical(1)))
 ## write a new package with test suite to a tempdir
 new_fxns <- make_fxns(mut_fxns)
-path <- write_mutated_pkg(pkg_path = path, fxns = new_fxns)
+newpath <- write_mutated_pkg(pkg_path = path, fxns = new_fxns, map = pkgmap)
+newpath
+ # list.files(path)
 ## run test suite & collect diagnostics
-mutout <- mutation_test(path)
+x=newpath
+mutout <- mutation_test(newpath)
+# mutout
+dplyr::select(data.frame(mutout), file, context, test, nb, failed, skipped, error, warning, passed)
 ## create report
-mutant_report(mutout)
+# mutant_report(mutout)

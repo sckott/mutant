@@ -6,7 +6,7 @@
 \alias{mutant}
 \title{mutant}
 \description{
-mutant
+Mutation Testing Framework
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
