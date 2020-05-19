@@ -1,5 +1,5 @@
-#' mutant
-#'
+#' @title mutant
+#' @description Mutation Testing Framework
 #' @name mutant-package
 #' @aliases mutant
 #' @docType package
