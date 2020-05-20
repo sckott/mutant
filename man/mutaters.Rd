@@ -73,6 +73,7 @@ A new \code{mutaters} object
 \if{html}{\out{<a id="method-random"></a>}}
 \if{latex}{\out{\hypertarget{method-random}{}}}
 \subsection{Method \code{random()}}{
+randomly select a mutater
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{mutaters$random()}\if{html}{\out{</div>}}
 }

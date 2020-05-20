@@ -91,9 +91,15 @@ queue <- R6::R6Class(
 
     #' @description list jobs in the queue
     messages = function() liteq::list_messages(self$q),
+    #' @description count jobs in the queue
+    count = function() liteq::message_count(self$q),
 
     #' @description fetch the queue path. `NULL` if there's no queue
-    queue_path = function() self$qpath
+    queue_path = function() self$qpath,
+
+    #' @description destroy the queue - in practice this only means
+    #' deleting the SQLite file
+    destroy = function() unlink(self$qpath, recursive = TRUE)
   ),
   private = list()
 )

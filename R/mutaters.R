@@ -83,6 +83,7 @@ mutaters <- R6::R6Class(
       names(self$muts) <- vapply(self$muts, "[[", "", "name")
     },
 
+    #' @description randomly select a mutater
     random = function() {
       if (length(self$muts) == 0) stop("no mutaters found")
       sample(self$muts, size = 1)[[1]]

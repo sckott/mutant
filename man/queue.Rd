@@ -50,7 +50,9 @@ x
 \item \href{#method-consume}{\code{queue$consume()}}
 \item \href{#method-done}{\code{queue$done()}}
 \item \href{#method-messages}{\code{queue$messages()}}
+\item \href{#method-count}{\code{queue$count()}}
 \item \href{#method-queue_path}{\code{queue$queue_path()}}
+\item \href{#method-destroy}{\code{queue$destroy()}}
 \item \href{#method-clone}{\code{queue$clone()}}
 }
 }
@@ -157,12 +159,33 @@ list jobs in the queue
 
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-count"></a>}}
+\if{latex}{\out{\hypertarget{method-count}{}}}
+\subsection{Method \code{count()}}{
+count jobs in the queue
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{queue$count()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-queue_path"></a>}}
 \if{latex}{\out{\hypertarget{method-queue_path}{}}}
 \subsection{Method \code{queue_path()}}{
 fetch the queue path. \code{NULL} if there's no queue
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{queue$queue_path()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-destroy"></a>}}
+\if{latex}{\out{\hypertarget{method-destroy}{}}}
+\subsection{Method \code{destroy()}}{
+destroy the queue - in practice this only means
+deleting the SQLite file
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{queue$destroy()}\if{html}{\out{</div>}}
 }
 
 }
