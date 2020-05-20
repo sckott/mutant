@@ -60,9 +60,9 @@ run mutation testing, do something with results, etc.
 brainstorming high level steps:
 
 1. map input package api
-  - optionally map what test lines are linked to what code lines ([#10](https://github.com/ropensci/mutant/issues/10))
+    - optionally map what test lines are linked to what code lines ([#10](https://github.com/ropensci/mutant/issues/10))
 2. generate mutants
-  - each of these are full packages, which with a different mutation
+    - each of these are full packages, which with a different mutation
 3. put all mutants in a queue ([#2](https://github.com/ropensci/mutant/issues/2))
 4. test all mutants - pull jobs from the queue until all are done
 5. collate results, write to disk
