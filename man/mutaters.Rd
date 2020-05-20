@@ -4,9 +4,7 @@
 \alias{mutaters}
 \title{mutaters}
 \description{
-mutaters
-
-mutaters
+R6 class for handling the various mutaters
 }
 \examples{
 \dontrun{
@@ -23,11 +21,10 @@ z$from
 z$to
 }
 }
-\keyword{internal}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{mutater}}{(character) a mutater name}
+\item{\code{muts}}{(list) list of mutaters}
 }
 \if{html}{\out{</div>}}
 }

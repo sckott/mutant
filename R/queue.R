@@ -1,6 +1,8 @@
-#' mutant queue
+#' @title mutant queue
+#' @description queue R6 class, for queueing mutant jobs
 #' @importFrom liteq ensure_queue publish try_consume
 #' @importFrom rappdirs user_data_dir
+#' @importFrom uuid UUIDgenerate
 #' @examples \dontrun{
 #' x <- queue$new()
 #' x
@@ -13,6 +15,7 @@
 #'     `some-file.R` = 
 #'       list(line1 = 45, line2 = 46, column = 4, from = "==", to = ">")))
 #' x$publish(as.character(jsonlite::toJSON(z)))
+#' x
 #' x$messages()
 #' mssg <- x$consume()
 #' mssg
@@ -22,11 +25,14 @@
 #' x$messages()
 #' x$done(mssg)
 #' x$messages()
+#' x
 #' }
 queue <- R6::R6Class(
   'queue',
   public = list(
+    #' @field q (liteq_queue) the liteq queue object
     q = NULL,
+    #' @field qpath (character) path to the queue on disk
     qpath = NULL,
 
     #' @description print method for `queue` objects
@@ -35,6 +41,13 @@ queue <- R6::R6Class(
     print = function(x, ...) {
       cat("<queue> ", sep = "\n")
       cat(paste0("  queue path: ", self$qpath), sep = "\n")
+      msgs <- self$messages()
+      if (NROW(msgs) == 0) {
+        cat("  messages: empty", sep = "\n")
+      } else {
+        cat("  messages (first 10): ", sep = "\n")
+        print(head(msgs, n = 10))
+      }
       invisible(self)
     },
 
@@ -61,7 +74,8 @@ queue <- R6::R6Class(
     #' `path` and `mutant_location`, for the file path to the mutated 
     #' package to test and information on the location of the mutation,
     #' respectively
-    #' @param title (character) job title, a random string
+    #' @param title (character) job title, a UUID, generated from
+    #' [uuid::UUIDgenerate()]
     publish = function(message, title = uuid::UUIDgenerate()) {
       assert(title, "character")
       assert(message, "character")

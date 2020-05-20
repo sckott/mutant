@@ -44,9 +44,8 @@ bool_false2true <- list(
   to = "TRUE"
 )
 
-#' mutaters
-#' @keywords internal
-#' @importFrom R6 R6Class
+#' @title mutaters
+#' @description R6 class for handling the various mutaters
 #' @examples \dontrun{
 #' x <- mutaters$new()
 #' x
@@ -63,8 +62,7 @@ bool_false2true <- list(
 mutaters <- R6::R6Class(
   'mutaters',
   public = list(
-    #' @field mutater (character) a mutater name
-    mutater = NULL,
+    #' @field muts (list) list of mutaters
     muts = list(),
 
     #' @description print method for `mutaters` objects

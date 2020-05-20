@@ -3,37 +3,8 @@
 \name{queue}
 \alias{queue}
 \title{mutant queue}
-\arguments{
-\item{x}{self}
-
-\item{...}{ignored}
-
-\item{temporary}{(logical) create a temporary queue that is cleaned up
-at the end of your R session? default: \code{TRUE}. if \code{FALSE}, we use
-\code{\link[rappdirs:user_data_dir]{rappdirs::user_data_dir()}} to cache the file. use \verb{$queue_path()}
-to get the path for the queue}
-
-\item{title}{(character) job title, a random string}
-
-\item{message}{(character) message object, of class \code{liteq_message}}
-}
-\value{
-A new \code{queue} object
-}
 \description{
-print method for \code{queue} objects
-
-Create a new queue object
-
-publish a job into the queue
-
-consume a job from the queue
-
-tell the queue the job can be removed from the queue
-
-list jobs in the queue
-
-fetch the queue path. \code{NULL} if there's no queue
+queue R6 class, for queueing mutant jobs
 }
 \examples{
 \dontrun{
@@ -48,6 +19,7 @@ z <- list(
     `some-file.R` = 
       list(line1 = 45, line2 = 46, column = 4, from = "==", to = ">")))
 x$publish(as.character(jsonlite::toJSON(z)))
+x
 x$messages()
 mssg <- x$consume()
 mssg
@@ -57,5 +29,158 @@ jsonlite::fromJSON(mssg$message)
 x$messages()
 x$done(mssg)
 x$messages()
+x
+}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{q}}{(liteq_queue) the liteq queue object}
+
+\item{\code{qpath}}{(character) path to the queue on disk}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-print}{\code{queue$print()}}
+\item \href{#method-new}{\code{queue$new()}}
+\item \href{#method-publish}{\code{queue$publish()}}
+\item \href{#method-consume}{\code{queue$consume()}}
+\item \href{#method-done}{\code{queue$done()}}
+\item \href{#method-messages}{\code{queue$messages()}}
+\item \href{#method-queue_path}{\code{queue$queue_path()}}
+\item \href{#method-clone}{\code{queue$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-print"></a>}}
+\if{latex}{\out{\hypertarget{method-print}{}}}
+\subsection{Method \code{print()}}{
+print method for \code{queue} objects
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{queue$print(x, ...)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{x}}{self}
+
+\item{\code{...}}{ignored}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Create a new queue object
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{queue$new(temporary = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{temporary}}{(logical) create a temporary queue that is cleaned up
+at the end of your R session? default: \code{TRUE}. if \code{FALSE}, we use
+\code{\link[rappdirs:user_data_dir]{rappdirs::user_data_dir()}} to cache the file. use \verb{$queue_path()}
+to get the path for the queue}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A new \code{queue} object
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-publish"></a>}}
+\if{latex}{\out{\hypertarget{method-publish}{}}}
+\subsection{Method \code{publish()}}{
+publish a job into the queue
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{queue$publish(message, title = uuid::UUIDgenerate())}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{message}}{(character) job message, a JSON string with fields
+\code{path} and \code{mutant_location}, for the file path to the mutated
+package to test and information on the location of the mutation,
+respectively}
+
+\item{\code{title}}{(character) job title, a UUID, generated from
+\code{\link[uuid:UUIDgenerate]{uuid::UUIDgenerate()}}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-consume"></a>}}
+\if{latex}{\out{\hypertarget{method-consume}{}}}
+\subsection{Method \code{consume()}}{
+consume a job from the queue
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{queue$consume()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-done"></a>}}
+\if{latex}{\out{\hypertarget{method-done}{}}}
+\subsection{Method \code{done()}}{
+tell the queue the job can be removed from the queue
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{queue$done(message)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{message}}{(character) message object, of class \code{liteq_message}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-messages"></a>}}
+\if{latex}{\out{\hypertarget{method-messages}{}}}
+\subsection{Method \code{messages()}}{
+list jobs in the queue
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{queue$messages()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-queue_path"></a>}}
+\if{latex}{\out{\hypertarget{method-queue_path}{}}}
+\subsection{Method \code{queue_path()}}{
+fetch the queue path. \code{NULL} if there's no queue
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{queue$queue_path()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{queue$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
 }
 }
