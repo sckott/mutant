@@ -6,3 +6,9 @@ assert <- function(x, y) {
     }
   }
 }
+
+has_pkg <- function(x) {
+  if (!requireNamespace(x, quietly = TRUE)) {
+    stop("install ", x, call. = FALSE)
+  }
+}

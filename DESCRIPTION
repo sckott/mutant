@@ -13,7 +13,6 @@ LazyData: true
 Roxygen: list(markdown=TRUE)
 Encoding: UTF-8
 Imports:
-    pkgapi,
     jsonlite,
     testthat,
     xmlparsedata,
@@ -24,5 +23,7 @@ Imports:
     liteq,
     rappdirs,
     uuid
+Suggests:
+    pkgapi
 RoxygenNote: 7.1.0
 Remotes: r-lib/pkgapi, ropenscilabs/astr

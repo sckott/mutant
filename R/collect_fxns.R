@@ -13,6 +13,7 @@ collect_fxns <- function(path) {
   # }
 }
 get_files <- function(path = ".") {
+  has_pkg("pkgapi")
   df <- pkgapi::map_package(path)$defs
   file.path(path, unique(df$file))
 }

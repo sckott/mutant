@@ -6,5 +6,6 @@
 #' @return the output from [pkgapi::map_package()]; a thin wrapper around
 #' that fxn
 make_pkg_map <- function(path = ".") {
+  has_pkg("pkgapi")
   pkgapi::map_package(path)
 }
