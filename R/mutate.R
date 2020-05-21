@@ -23,11 +23,12 @@
 #' }
 mutate <- function(x) {
   assert(x, "list")
-  x <- lapply(x, function(w) {
-    z <- astr::ast_decompose(w)
+  x <- Map(function(fun, name) {
+    z <- astr::ast_decompose(fun)
     attr(z, "mutated") <- FALSE
+    attr(z, "name") <- name
     z
-  })
+  }, x, names(x))
   not_done <- TRUE
   i <- 0
   while (not_done) {
@@ -40,6 +41,7 @@ mutate <- function(x) {
 
 #' Make a mutation in one function
 #' 
+#' @export
 #' @param x a data.frame, the output of [utils::getParseData()], called
 #' from [parse_fxns()]
 #' @keywords internal
@@ -56,15 +58,18 @@ mutate_one <- function(x) {
   UseMethod("mutate_one")
 }
 #' @rdname mutate_one
+#' @export
 mutate_one.default <- function(x) {
   stop("no `mutate_one` method for ", class(x)[1L], call. = FALSE)
 }
 #' @rdname mutate_one
+#' @export
 mutate_one.function <- function(x) {
   x_dec <- astr::ast_decompose(x)
   mutate_one(x_dec)
 }
 #' @rdname mutate_one
+#' @export
 mutate_one.ast <- function(x) {
   mut <- mutaters$new()$random()
   res <- suppressMessages(astr::ast_modify(x,

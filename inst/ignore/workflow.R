@@ -9,7 +9,8 @@ pkgmap <- make_pkg_map(path)
 ## parse fxns with getParseData
 # fxns <- parse_fxns(env)
 ## mutate something
-mut_fxns <- mutate(as.list(env))
+fxns <- as.list(env)
+mut_fxns <- mutate(fxns)
 # what fxn was mutated?
 which(vapply(mut_fxns, function(x) attr(x, "mutated"), logical(1)))
 ## write a new package with test suite to a tempdir
