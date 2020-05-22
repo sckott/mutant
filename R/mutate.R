@@ -28,10 +28,11 @@ mutate <- function(x) {
     attr(z, "mutated") <- FALSE
     z
   })
+  x_length <- length(x)
   not_done <- TRUE
   i <- 0
   while (not_done) {
-    i <- i + 1
+    i <- (i %% x_length) + 1
     x[[i]] <- mutate_one(x[[i]])
     if (attr(x[[i]], "mutated")) not_done <- FALSE
   }
