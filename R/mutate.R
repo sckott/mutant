@@ -31,7 +31,8 @@ mutate <- function(x) {
   x_length <- length(x)
   for (i in 1:x_length) {
     x[[i]] <- mutate_one(x[[i]])
-    if (attr(x[[i]], "mutated")) break
+    is_done <- attr(x[[i]], "mutated")
+    if (is_done) break
   }
   return(x)
 }
