@@ -3,7 +3,7 @@ path <- "../randgeo/"
 # workflow
 ## collect fxns into an environment
 env <- collect_fxns(path)
-ls.str(env)
+# ls.str(env)
 ## make pkg map for later
 pkgmap <- make_pkg_map(path)
 ## parse fxns with getParseData

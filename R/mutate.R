@@ -29,12 +29,13 @@ mutate <- function(x) {
     attr(z, "name") <- name
     z
   }, x, names(x))
-  not_done <- TRUE
-  i <- 0
-  while (not_done) {
-    i <- i + 1
+  x_length <- length(x)
+  mut_length <- length(mutaters$new()$muts)
+  max_iterations <- x_length * mut_length
+  for (i in 1:max_iterations) {
     x[[i]] <- mutate_one(x[[i]])
-    if (attr(x[[i]], "mutated")) not_done <- FALSE
+    is_done <- attr(x[[i]], "mutated")
+    if (is_done) break
   }
   return(x)
 }
