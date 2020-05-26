@@ -23,17 +23,12 @@ write_mutated_pkg <- function(pkg_path, fxns, map) {
   # replace the R files
   ff_map <- filename_from_fxnname(fxns, map)
   invisible(lapply(split(ff_map, ff_map$file), function(a) {
-
-    fname <- names(fxns[names(fxns) %in% a$fun_name[i]])
-    fun <- fxns[names(fxns) %in% a$fun_name[i]][[1]]
-    fun <- paste0(sprintf("`%s`", fname), " <- ", fun, "\n\n")
-    cat(fun, file = file.path(mut_pkg_path, map$name, a$file[i]), append = TRUE)
-    # for (i in seq_len(NROW(a))) {
-    #   fname <- names(fxns[names(fxns) %in% a$fun_name[i]])
-    #   fun <- fxns[names(fxns) %in% a$fun_name[i]][[1]]
-    #   fun <- paste0(sprintf("`%s`", fname), " <- ", fun, "\n\n")
-    #   cat(fun, file = file.path(mut_pkg_path, map$name, a$file[i]), append = TRUE)
-    # }
+    for (i in seq_len(NROW(a))) {
+      fname <- names(fxns[names(fxns) %in% a$fun_name[i]])
+      fun <- fxns[names(fxns) %in% a$fun_name[i]][[1]]
+      fun <- paste0(sprintf("`%s`", fname), " <- ", fun, "\n\n")
+      cat(fun, file = file.path(mut_pkg_path, map$name, a$file[i]), append = TRUE)
+    }
   }))
 
   # return mutant pkg path
@@ -54,7 +49,7 @@ filename_from_fxnname <- function(fxns, map) {
       first_line = matched[1, "line1"],
       last_line = matched[1, "line2"],
       file = matched$file[1],
-      src = extract_src(fxns[names(fxns) %in% z][[1]]),
+      # src = extract_src(fxns[names(fxns) %in% z][[1]]),
       stringsAsFactors = FALSE
     )
   })
@@ -62,11 +57,11 @@ filename_from_fxnname <- function(fxns, map) {
   df[ order(df$file), ]
 }
 
-extract_src <- function(w) {
-  srcref <- attr(w, "srcref")
-  sf <- attr(srcref, "srcfile")
-  sf$filename
-  sf$lines
-  # cat(sf$lines, sep = "\n")
-  # names(sf)
-}
+# extract_src <- function(w) {
+#   # srcref <- attr(w, "srcref")
+#   sf <- attr(w, "srcfile")
+#   sf$filename
+#   sf$lines
+#   # cat(sf$lines, sep = "\n")
+#   # names(sf)
+# }

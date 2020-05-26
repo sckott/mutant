@@ -15,7 +15,8 @@ mut_fxns <- mutate(fxns)
 which(vapply(mut_fxns, function(x) attr(x, "mutated"), logical(1)))
 ## write a new package with test suite to a tempdir
 new_fxns <- make_fxns(mut_fxns)
-newpath <- write_mutated_pkg(pkg_path = path, fxns = new_fxns, map = pkgmap)
+newpath <- write_mutated_pkg(pkg_path = path, fxns = mut_fxns, map = pkgmap)
+# newpath <- write_mutated_pkg(pkg_path = path, fxns = new_fxns, map = pkgmap)
 newpath
  # list.files(path)
 ## run test suite & collect diagnostics
