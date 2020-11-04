@@ -2,7 +2,7 @@ Package: mutant
 Type: Package
 Title: Mutation Testing Framework
 Description: Mutation testing framework.
-Version: 0.0.2.93
+Version: 0.0.2.94
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com", 
     comment = c(ORCID = "0000-0003-1444-9135")))
@@ -26,4 +26,4 @@ Imports:
 Suggests:
     pkgapi
 RoxygenNote: 7.1.0
-Remotes: r-lib/pkgapi, ropenscilabs/astr
+Remotes: r-lib/pkgapi, sckott/astr
