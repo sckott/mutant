@@ -7,8 +7,8 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com", 
     comment = c(ORCID = "0000-0003-1444-9135")))
 License: MIT + file LICENSE
-URL: https://docs.ropensci.org/mutant, https://github.com/ropensci/mutant
-BugReports: https://github.com/ropensci/mutant/issues
+URL: https://sckott.github.io/mutant/, https://github.com/sckott/mutant
+BugReports: https://github.com/sckott/mutant/issues
 LazyData: true
 Roxygen: list(markdown=TRUE)
 Encoding: UTF-8

@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 ```
 
 [![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
-![R-CMD-check](https://github.com/ropensci/mutant/workflows/R-CMD-check/badge.svg)
+![R-CMD-check](https://github.com/sckott/mutant/workflows/R-CMD-check/badge.svg)
 
 `mutant` - mutation testing
 
@@ -27,7 +27,7 @@ knitr::opts_chunk$set(
 ## install
 
 ```{r eval=FALSE}
-remotes::install_github("ropenscilabs/astr", "roepnsci/mutant")
+remotes::install_github("sckott/astr", "sckott/mutant")
 ```
 
 ## current workflow
@@ -65,20 +65,18 @@ run mutation testing, do something with results, etc.
 brainstorming high level steps:
 
 1. map input package api
-    - optionally map what test lines are linked to what code lines ([#10](https://github.com/ropensci/mutant/issues/10))
+    - optionally map what test lines are linked to what code lines ([#10](https://github.com/sckott/mutant/issues/10))
 2. generate mutants
     - each of these are full packages, which with a different mutation
-3. put all mutants in a queue ([#2](https://github.com/ropensci/mutant/issues/2))
+3. put all mutants in a queue ([#2](https://github.com/sckott/mutant/issues/2))
 4. test all mutants - pull jobs from the queue until all are done
 5. collate results, write to disk
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropensci/mutant/issues).
+* Please [report any issues or bugs](https://github.com/sckott/mutant/issues).
 * License: MIT
 * Get citation information for `mutant` in R doing `citation(package = 'mutant')`
 * Please note that this project is released with a [Contributor Code of Conduct][coc]. By participating in this project you agree to abide by its terms.
 
-[![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
-
-[coc]: https://github.com/ropensci/mutant/blob/master/CODE_OF_CONDUCT.md
+[coc]: https://github.com/sckott/mutant/blob/master/CODE_OF_CONDUCT.md
