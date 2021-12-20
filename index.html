@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,25 +33,19 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">mutant</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2.94</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.2.94</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/sckott/mutant/">
+  <a href="https://github.com/sckott/mutant/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -66,15 +62,15 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="mutant" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#mutant" class="anchor"></a>mutant</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="mutant">mutant<a class="anchor" aria-label="anchor" href="#mutant"></a>
+</h1></div>
 
 <p><code>mutant</code> - mutation testing</p>
-<p>(wikipedia: <a href="https://en.wikipedia.org/wiki/Mutation_testing">mutation testing</a> vs. <a href="https://en.wikipedia.org/wiki/Fuzzing">fuzzing</a>)</p>
-<div id="info" class="section level2">
-<h2 class="hasAnchor">
-<a href="#info" class="anchor"></a>info</h2>
+<p>(wikipedia: <a href="https://en.wikipedia.org/wiki/Mutation_testing" class="external-link">mutation testing</a> vs. <a href="https://en.wikipedia.org/wiki/Fuzzing" class="external-link">fuzzing</a>)</p>
+<div class="section level2">
+<h2 id="info">info<a class="anchor" aria-label="anchor" href="#info"></a>
+</h2>
 <ul>
 <li>mutaters: in <code>mutaters.R</code>
 <ul>
@@ -88,47 +84,47 @@
 </li>
 </ul>
 </div>
-<div id="install" class="section level2">
-<h2 class="hasAnchor">
-<a href="#install" class="anchor"></a>install</h2>
+<div class="section level2">
+<h2 id="install">install<a class="anchor" aria-label="anchor" href="#install"></a>
+</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"sckott/astr"</span>, <span class="st">"sckott/mutant"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"sckott/astr"</span>, <span class="st">"sckott/mutant"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="current-workflow" class="section level2">
-<h2 class="hasAnchor">
-<a href="#current-workflow" class="anchor"></a>current workflow</h2>
+<div class="section level2">
+<h2 id="current-workflow">current workflow<a class="anchor" aria-label="anchor" href="#current-workflow"></a>
+</h2>
 <p>As of this writing (2020-05-18) …</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># path to an R package with working tests in tests/</span>
 <span class="va">path</span> <span class="op">&lt;-</span> <span class="st">"../randgeo/"</span> 
 <span class="co">## collect fxns into an environment</span>
 <span class="va">env</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/collect_fxns.html">collect_fxns</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/ls_str.html">ls.str</a></span><span class="op">(</span><span class="va">env</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/ls_str.html" class="external-link">ls.str</a></span><span class="op">(</span><span class="va">env</span><span class="op">)</span>
 <span class="co">## make pkg map for later</span>
 <span class="va">pkgmap</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/make_pkg_map.html">make_pkg_map</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span>
 <span class="co">## parse fxns with getParseData</span>
 <span class="co"># fxns &lt;- parse_fxns(env)</span>
 <span class="co">## mutate something</span>
-<span class="va">mut_fxns</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">as.list</a></span><span class="op">(</span><span class="va">env</span><span class="op">)</span><span class="op">)</span>
+<span class="va">mut_fxns</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">as.list</a></span><span class="op">(</span><span class="va">env</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># what fxn was mutated?</span>
-<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">vapply</a></span><span class="op">(</span><span class="va">mut_fxns</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"mutated"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/logical.html">logical</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply</a></span><span class="op">(</span><span class="va">mut_fxns</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"mutated"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">## write a new package with test suite to a tempdir</span>
 <span class="va">new_fxns</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/make_fxn.html">make_fxns</a></span><span class="op">(</span><span class="va">mut_fxns</span><span class="op">)</span>
 <span class="va">newpath</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/write_mutated_pkg.html">write_mutated_pkg</a></span><span class="op">(</span>pkg_path <span class="op">=</span> <span class="va">path</span>, fxns <span class="op">=</span> <span class="va">new_fxns</span>, map <span class="op">=</span> <span class="va">pkgmap</span><span class="op">)</span>
 <span class="co">## run test suite &amp; collect diagnostics</span>
 <span class="va">mutout</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mutation_test.html">mutation_test</a></span><span class="op">(</span><span class="va">newpath</span><span class="op">)</span>
 <span class="co"># mutout</span>
-<span class="fu">dplyr</span><span class="fu">::</span><span class="fu">select</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">mutout</span><span class="op">)</span>, <span class="va">file</span>, <span class="va">context</span>, <span class="va">test</span>, <span class="va">nb</span>, <span class="va">failed</span>, <span class="va">skipped</span>, <span class="va">error</span>, <span class="va">warning</span>, <span class="va">passed</span><span class="op">)</span></code></pre></div>
+<span class="fu">dplyr</span><span class="fu">::</span><span class="fu">select</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">mutout</span><span class="op">)</span>, <span class="va">file</span>, <span class="va">context</span>, <span class="va">test</span>, <span class="va">nb</span>, <span class="va">failed</span>, <span class="va">skipped</span>, <span class="va">error</span>, <span class="va">warning</span>, <span class="va">passed</span><span class="op">)</span></code></pre></div>
 <p>This will all be internal code however - only exposing probably a few functions to users to run mutation testing, do something with results, etc.</p>
 </div>
-<div id="to-do" class="section level2">
-<h2 class="hasAnchor">
-<a href="#to-do" class="anchor"></a>To do</h2>
+<div class="section level2">
+<h2 id="to-do">To do<a class="anchor" aria-label="anchor" href="#to-do"></a>
+</h2>
 <p>brainstorming high level steps:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>map input package api
 <ul>
-<li>optionally map what test lines are linked to what code lines (<a href="https://github.com/sckott/mutant/issues/10">#10</a>)</li>
+<li>optionally map what test lines are linked to what code lines (<a href="https://github.com/sckott/mutant/issues/10" class="external-link">#10</a>)</li>
 </ul>
 </li>
 <li>generate mutants
@@ -136,20 +132,20 @@
 <li>each of these are full packages, which with a different mutation</li>
 </ul>
 </li>
-<li>put all mutants in a queue (<a href="https://github.com/sckott/mutant/issues/2">#2</a>)</li>
+<li>put all mutants in a queue (<a href="https://github.com/sckott/mutant/issues/2" class="external-link">#2</a>)</li>
 <li>test all mutants - pull jobs from the queue until all are done</li>
 <li>collate results, write to disk</li>
 </ol>
 </div>
-<div id="meta" class="section level2">
-<h2 class="hasAnchor">
-<a href="#meta" class="anchor"></a>Meta</h2>
+<div class="section level2">
+<h2 id="meta">Meta<a class="anchor" aria-label="anchor" href="#meta"></a>
+</h2>
 <ul>
-<li>Please <a href="https://github.com/sckott/mutant/issues">report any issues or bugs</a>.</li>
+<li>Please <a href="https://github.com/sckott/mutant/issues" class="external-link">report any issues or bugs</a>.</li>
 <li>License: MIT</li>
-<li>Get citation information for <code>mutant</code> in R doing <code><a href="https://rdrr.io/r/utils/citation.html">citation(package = 'mutant')</a></code>
+<li>Get citation information for <code>mutant</code> in R doing <code>citation(package = 'mutant')</code>
 </li>
-<li>Please note that this project is released with a <a href="https://github.com/sckott/mutant/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</li>
+<li>Please note that this project is released with a <a href="https://github.com/sckott/mutant/blob/master/CODE_OF_CONDUCT.md" class="external-link">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</li>
 </ul>
 </div>
 </div>
@@ -157,51 +153,62 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/sckott/mutant/">https://​github.com/​sckott/​mutant/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/sckott/mutant/issues">https://​github.com/​sckott/​mutant/​issues</a>
-</li>
+<li><a href="https://github.com/sckott/mutant/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/sckott/mutant/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
+<a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
 </li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>Scott Chamberlain <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-1444-9135" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html#citation">Citing mutant</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.repostatus.org/#concept"><img src="https://www.repostatus.org/badges/latest/concept.svg" alt="Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept."></a></li>
+<li>Scott Chamberlain <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-1444-9135" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://www.repostatus.org/#concept" class="external-link"><img src="https://www.repostatus.org/badges/latest/concept.svg" alt="Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept."></a></li>
+</ul>
 </div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Scott Chamberlain.</p>
+  <p></p>
+<p>Developed by Scott Chamberlain.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -209,6 +216,8 @@
 
   
 
+
+  
 
   </body>
 </html>
