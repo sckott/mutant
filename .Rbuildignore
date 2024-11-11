@@ -8,3 +8,7 @@ man-roxygen
 scottnotes.md
 ^Makefile$
 ^.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$

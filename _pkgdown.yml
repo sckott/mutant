@@ -1,0 +1,5 @@
+url: https://sckott.github.io/mutant/
+template:
+  bootstrap: 5
+  light-switch: true
+
