@@ -1,57 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/collect_fxns.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/make_fxn.html</loc>
-  </url>
-  <url>
-    <loc>/reference/make_pkg_map.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mutant-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mutate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mutate_one.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mutaters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mutation_test.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_fxns.html</loc>
-  </url>
-  <url>
-    <loc>/reference/queue.html</loc>
-  </url>
-  <url>
-    <loc>/reference/run_test.html</loc>
-  </url>
-  <url>
-    <loc>/reference/write_mutated_pkg.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/collect_fxns.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/make_fxn.html</loc></url>
+<url><loc>/reference/make_pkg_map.html</loc></url>
+<url><loc>/reference/mutant-package.html</loc></url>
+<url><loc>/reference/mutate.html</loc></url>
+<url><loc>/reference/mutate_one.html</loc></url>
+<url><loc>/reference/mutaters.html</loc></url>
+<url><loc>/reference/mutation_test.html</loc></url>
+<url><loc>/reference/parse_fxns.html</loc></url>
+<url><loc>/reference/queue.html</loc></url>
+<url><loc>/reference/run_test.html</loc></url>
+<url><loc>/reference/write_mutated_pkg.html</loc></url>
 </urlset>
+
