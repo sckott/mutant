@@ -2,4 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-11-11T06:26Z
+last_built: 2024-11-11T06:42Z
+urls:
+  reference: https://sckott.github.io/mutant/reference
+  article: https://sckott.github.io/mutant/articles
