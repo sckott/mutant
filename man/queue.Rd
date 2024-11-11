@@ -44,21 +44,21 @@ x
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-print}{\code{queue$print()}}
-\item \href{#method-new}{\code{queue$new()}}
-\item \href{#method-publish}{\code{queue$publish()}}
-\item \href{#method-consume}{\code{queue$consume()}}
-\item \href{#method-done}{\code{queue$done()}}
-\item \href{#method-messages}{\code{queue$messages()}}
-\item \href{#method-count}{\code{queue$count()}}
-\item \href{#method-queue_path}{\code{queue$queue_path()}}
-\item \href{#method-destroy}{\code{queue$destroy()}}
-\item \href{#method-clone}{\code{queue$clone()}}
+\item \href{#method-queue-print}{\code{queue$print()}}
+\item \href{#method-queue-new}{\code{queue$new()}}
+\item \href{#method-queue-publish}{\code{queue$publish()}}
+\item \href{#method-queue-consume}{\code{queue$consume()}}
+\item \href{#method-queue-done}{\code{queue$done()}}
+\item \href{#method-queue-messages}{\code{queue$messages()}}
+\item \href{#method-queue-count}{\code{queue$count()}}
+\item \href{#method-queue-queue_path}{\code{queue$queue_path()}}
+\item \href{#method-queue-destroy}{\code{queue$destroy()}}
+\item \href{#method-queue-clone}{\code{queue$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-print"></a>}}
-\if{latex}{\out{\hypertarget{method-print}{}}}
+\if{html}{\out{<a id="method-queue-print"></a>}}
+\if{latex}{\out{\hypertarget{method-queue-print}{}}}
 \subsection{Method \code{print()}}{
 print method for \code{queue} objects
 \subsection{Usage}{
@@ -76,8 +76,8 @@ print method for \code{queue} objects
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-queue-new"></a>}}
+\if{latex}{\out{\hypertarget{method-queue-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new queue object
 \subsection{Usage}{
@@ -99,8 +99,8 @@ A new \code{queue} object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-publish"></a>}}
-\if{latex}{\out{\hypertarget{method-publish}{}}}
+\if{html}{\out{<a id="method-queue-publish"></a>}}
+\if{latex}{\out{\hypertarget{method-queue-publish}{}}}
 \subsection{Method \code{publish()}}{
 publish a job into the queue
 \subsection{Usage}{
@@ -122,8 +122,8 @@ respectively}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-consume"></a>}}
-\if{latex}{\out{\hypertarget{method-consume}{}}}
+\if{html}{\out{<a id="method-queue-consume"></a>}}
+\if{latex}{\out{\hypertarget{method-queue-consume}{}}}
 \subsection{Method \code{consume()}}{
 consume a job from the queue
 \subsection{Usage}{
@@ -132,8 +132,8 @@ consume a job from the queue
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-done"></a>}}
-\if{latex}{\out{\hypertarget{method-done}{}}}
+\if{html}{\out{<a id="method-queue-done"></a>}}
+\if{latex}{\out{\hypertarget{method-queue-done}{}}}
 \subsection{Method \code{done()}}{
 tell the queue the job can be removed from the queue
 \subsection{Usage}{
@@ -149,8 +149,8 @@ tell the queue the job can be removed from the queue
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-messages"></a>}}
-\if{latex}{\out{\hypertarget{method-messages}{}}}
+\if{html}{\out{<a id="method-queue-messages"></a>}}
+\if{latex}{\out{\hypertarget{method-queue-messages}{}}}
 \subsection{Method \code{messages()}}{
 list jobs in the queue
 \subsection{Usage}{
@@ -159,8 +159,8 @@ list jobs in the queue
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-count"></a>}}
-\if{latex}{\out{\hypertarget{method-count}{}}}
+\if{html}{\out{<a id="method-queue-count"></a>}}
+\if{latex}{\out{\hypertarget{method-queue-count}{}}}
 \subsection{Method \code{count()}}{
 count jobs in the queue
 \subsection{Usage}{
@@ -169,8 +169,8 @@ count jobs in the queue
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-queue_path"></a>}}
-\if{latex}{\out{\hypertarget{method-queue_path}{}}}
+\if{html}{\out{<a id="method-queue-queue_path"></a>}}
+\if{latex}{\out{\hypertarget{method-queue-queue_path}{}}}
 \subsection{Method \code{queue_path()}}{
 fetch the queue path. \code{NULL} if there's no queue
 \subsection{Usage}{
@@ -179,8 +179,8 @@ fetch the queue path. \code{NULL} if there's no queue
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-destroy"></a>}}
-\if{latex}{\out{\hypertarget{method-destroy}{}}}
+\if{html}{\out{<a id="method-queue-destroy"></a>}}
+\if{latex}{\out{\hypertarget{method-queue-destroy}{}}}
 \subsection{Method \code{destroy()}}{
 destroy the queue - in practice this only means
 deleting the SQLite file
@@ -190,8 +190,8 @@ deleting the SQLite file
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-queue-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-queue-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -25,5 +25,5 @@ Imports:
     uuid
 Suggests:
     pkgapi
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.2
 Remotes: r-lib/pkgapi, sckott/astr

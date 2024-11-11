@@ -2,13 +2,23 @@
 % Please edit documentation in R/mutant-package.R
 \docType{package}
 \name{mutant-package}
-\alias{mutant-package}
 \alias{mutant}
-\title{mutant}
+\alias{mutant-package}
+\title{mutant: Mutation Testing Framework}
 \description{
-Mutation Testing Framework
+Mutation testing framework.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://sckott.github.io/mutant/}
+  \item \url{https://github.com/sckott/mutant}
+  \item Report bugs at \url{https://github.com/sckott/mutant/issues}
+}
+
 }
 \author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+\strong{Maintainer}: Scott Chamberlain \email{myrmecocystus@gmail.com} (\href{https://orcid.org/0000-0003-1444-9135}{ORCID})
+
 }
-\keyword{package}
+\keyword{internal}
