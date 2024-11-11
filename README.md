@@ -13,7 +13,7 @@ mutant
 ## info
 
 - mutaters: in `mutaters.R`
-  - currently only have: 
+  - currently only have:
     - boolean replacement (TRUE -> FALSE, and vice versa)
     - binary operator replacement (e.g., > to >=)
 
@@ -31,7 +31,7 @@ As of this writing (2020-05-18) ...
 
 ```r
 # path to an R package with working tests in tests/
-path <- "../randgeo/" 
+path <- "../randgeo/"
 ## collect fxns into an environment
 env <- collect_fxns(path)
 ls.str(env)
@@ -52,7 +52,7 @@ mutout <- mutation_test(newpath)
 dplyr::select(data.frame(mutout), file, context, test, nb, failed, skipped, error, warning, passed)
 ```
 
-This will all be internal code however - only exposing probably a few functions to users to 
+This will all be internal code however - only exposing probably a few functions to users to
 run mutation testing, do something with results, etc.
 
 ## To do
@@ -74,4 +74,4 @@ brainstorming high level steps:
 * Get citation information for `mutant` in R doing `citation(package = 'mutant')`
 * Please note that this project is released with a [Contributor Code of Conduct][coc]. By participating in this project you agree to abide by its terms.
 
-[coc]: https://github.com/sckott/mutant/blob/master/CODE_OF_CONDUCT.md
+[coc]: https://github.com/sckott/mutant/blob/main/CODE_OF_CONDUCT.md
